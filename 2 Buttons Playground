@@ -1,0 +1,324 @@
+int button1State = 0;
+int button2State = 0;
+int button3State = 0;
+int button4State = 0;
+int button5State = 0;
+int button6State = 0;
+
+int active = 0;
+
+int start = 0;
+int end = 0;
+
+
+void setup()
+{
+    for(int pinNumber = 1; pinNumber < 7; pinNumber++)
+    {
+        pinMode(pinNumber, INPUT);
+    }
+    
+    for(int pinNumber = 8; pinNumber < 14; pinNumber++)
+    {
+        pinMode(pinNumber, OUTPUT);
+    }
+}
+
+void loop()
+{
+    // reads and notes if theres energy there
+    button1State = digitalRead(1);
+    button2State = digitalRead(2);
+    button3State = digitalRead(3);
+    button4State = digitalRead(4);
+    button5State = digitalRead(5);
+    button6State = digitalRead(6);
+    
+    
+    // ONE BUTTON SCENARIOS
+    
+    if(button1State == HIGH)
+    {
+        start = 8;
+        active = 1;
+    }
+    
+    if(button2State == HIGH)
+    {
+        start = 9;
+        active = 2;
+    }
+    
+    if(button3State == HIGH)
+    {
+        start = 10;
+        active = 3;
+    }
+    
+    if(button4State == HIGH)
+    {
+        start = 11;
+        active = 4;
+    }
+    
+    if(button5State == HIGH)
+    {
+        start = 12;
+        active = 5;
+    }
+    
+    if(button6State == HIGH)
+    {
+        start = 13;
+        active = 6;
+    }
+    
+    
+    
+    // TWO BUTTON SCENARIOS
+    
+    
+    if(button1State == HIGH && button2State == HIGH)
+    {
+        active = 12;
+        start = 8;
+        end = 10;
+    }
+    
+    if(button1State == HIGH && button3State == HIGH)
+    {
+        active = 13;
+        start = 8;
+        end = 11;
+    }
+    
+    if(button1State == HIGH && button4State == HIGH)
+    {
+        active = 14;
+        start = 8;
+        end = 12;
+    }
+    
+    if(button1State == HIGH && button5State == HIGH)
+    {
+        active = 15;
+        start = 8;
+        end = 13;
+    }
+    
+    if(button1State == HIGH && button6State == HIGH)
+    {
+        active = 16;
+        start = 8;
+        end = 14;
+    }
+    
+    if(button2State == HIGH && button3State == HIGH)
+    {
+        active = 23;
+        start = 9;
+        end = 11;
+    }
+    
+    if(button2State == HIGH && button4State == HIGH)
+    {
+        active = 24;
+        start = 9;
+        end = 12;
+    }
+    
+    if(button2State == HIGH && button5State == HIGH)
+    {
+        active = 25;
+        start = 9;
+        end = 13;
+    }
+    
+    if(button2State == HIGH && button6State == HIGH)
+    {
+        active = 26;
+        start = 9;
+        end = 14;
+    }
+    
+    if(button3State == HIGH && button4State == HIGH)
+    {
+        active = 34;
+        start = 10;
+        end = 12;
+    }
+    
+    if(button3State == HIGH && button5State == HIGH)
+    {
+        active = 35;
+        start = 10;
+        end = 13;
+    }
+    
+    if(button3State == HIGH && button6State == HIGH)
+    {
+        active = 36;
+        start = 10;
+        end = 14;
+    }
+    
+    if(button4State == HIGH && button5State == HIGH)
+    {
+        active = 45;
+        start = 11;
+        end = 13;
+    }
+    
+    if(button4State == HIGH && button6State == HIGH)
+    {
+        active = 46;
+        start = 11;
+        end = 14;
+    }
+    
+    if(button5State == HIGH && button6State == HIGH)
+    {
+        active = 56;
+        start = 12;
+        end = 14;
+    }
+    
+    
+    // SCENARIO ACTIONS
+    
+    if(start = 8)
+    {   
+        if(end != 0)
+        {
+            for(start<end; start++)
+            {
+                digitalWrite(pinNumber, HIGH);
+                delay(500);
+                digitalWrite(pinNumber, LOW);
+            }
+        }
+        
+        else
+        {
+            for(int pinNumber = 8; pinNumber < 14; pinNumber++)
+            {
+                digitalWrite(pinNumber, HIGH);
+                delay(500);
+                digitalWrite(pinNumber, LOW);
+            }
+
+            for(int pinNumber = 8; pinNumber < 9; pinNumber++)
+            {
+                digitalWrite(pinNumber, HIGH);
+                delay(500);
+                digitalWrite(pinNumber, LOW);
+            }
+         }
+    }
+    
+    if(start == 2)
+    {
+        for(int pinNumber = 9; pinNumber < 14; pinNumber++)
+        {
+            digitalWrite(pinNumber, HIGH);
+            delay(500);
+            digitalWrite(pinNumber, LOW);
+        }
+        
+        for(int pinNumber = 8; pinNumber < 10; pinNumber++)
+        {
+            digitalWrite(pinNumber, HIGH);
+            delay(500);
+            digitalWrite(pinNumber, LOW);
+        }
+    }
+    
+    if(start == 3)
+    {
+        for(int pinNumber = 10; pinNumber < 14; pinNumber++)
+        {
+            digitalWrite(pinNumber, HIGH);
+            delay(500);
+            digitalWrite(pinNumber, LOW);
+        }
+        
+        for(int pinNumber = 8; pinNumber < 11; pinNumber++)
+        {
+            digitalWrite(pinNumber, HIGH);
+            delay(500);
+            digitalWrite(pinNumber, LOW);
+        }
+    }
+    
+    if(start == 4)
+    {
+        for(int pinNumber = 11; pinNumber < 14; pinNumber++)
+        {
+            digitalWrite(pinNumber, HIGH);
+            delay(500);
+            digitalWrite(pinNumber, LOW);
+        }
+        
+        for(int pinNumber = 8; pinNumber < 12; pinNumber++)
+        {
+            digitalWrite(pinNumber, HIGH);
+            delay(500);
+            digitalWrite(pinNumber, LOW);
+        }
+        
+        start = 0;
+    }
+    
+    if(start == 5)
+    {
+        for(int pinNumber = 12; pinNumber < 14; pinNumber++)
+        {
+            digitalWrite(pinNumber, HIGH);
+            delay(500);
+            digitalWrite(pinNumber, LOW);
+        }
+        
+        for(int pinNumber = 8; pinNumber < 13; pinNumber++)
+        {
+            digitalWrite(pinNumber, HIGH);
+            delay(500);
+            digitalWrite(pinNumber, LOW);
+        }
+        
+        start = 0;
+    }
+    
+    if(start == 6)
+    {
+        for(int pinNumber = 13; pinNumber < 14; pinNumber++)
+        {
+            digitalWrite(pinNumber, HIGH);
+            delay(250);
+            digitalWrite(pinNumber, LOW);
+          delay(250);
+        }
+        
+        for(int pinNumber = 8; pinNumber < 14; pinNumber++)
+        {
+            digitalWrite(pinNumber, HIGH);
+            delay(500);
+            digitalWrite(pinNumber, LOW);
+        }
+        
+        start = 0;
+    }
+    
+    
+    // TWO BUTTON SCENARIO ACTIONS
+    
+    
+    if(start == 8)
+    {
+        for(start < end; start++)
+        {
+            digitalWrite(start, HIGH);
+            delay(500);
+            digitalWrite(start, LOW);
+        }   
+    }
+}
