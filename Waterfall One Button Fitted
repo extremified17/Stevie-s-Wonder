@@ -6,17 +6,19 @@ int button4State = 0;
 int button5State = 0;
 int button6State = 0;
 
-// variables noting which buttons are on/active
+// variables noting which buttons are on/active; helps differentiate between states, ie. 2 buttons pressed or 5
 int active = 0;
 
 // variables used in concert for when 2 buttons are pressed at the same time
 int start = 0;
 int end = 0;
 
-// variables used in concert for when 3 buttons are pressed at the same time
+// variables used in concert for when 3 or 4 buttons are pressed at the same time
 int n1 = 0;
 int n2 = 0;
 int n3 = 0;
+int n4 = 0;
+int n5 = 0;
 
 
 void setup()
@@ -364,7 +366,7 @@ void loop()
                 n1 = 10;
                 n2 = 11;
                 n3 = 13;
-                active = 346
+                active = 346;
             }
         }
 
@@ -394,7 +396,238 @@ void loop()
             }
         }
     }
+    
+    
+    
+    // FOUR BUTTON SCENARIOS
+    
+    
+    if(button1State == HIGH)
+    {
+      if(button2State == HIGH)
+      {
+          if(button3State == HIGH)
+          {
+              if(button4State == HIGH)
+              {
+                  n1 = 8;
+                  n2 = 9;
+                  n3 = 10;
+                  n4 = 11;
+                  active = 1234;
+              }
+              
+              if(button5State == HIGH)
+              {
+                  n1 = 8;
+                  n2 = 9;
+                  n3 = 10;
+                  n4 = 12;
+                  active = 1235;
+              }
+              
+              if(button6State == HIGH)
+              {
+                  n1 = 8;
+                  n2 = 9;
+                  n3 = 10;
+                  n4 = 13;
+                  active = 1236;
+              }
+          }
+        
+        if(button4State == HIGH)
+        {
+            if(button5State == HIGH)
+            {
+                  n1 = 8;
+                  n2 = 9;
+                  n3 = 11;
+                  n4 = 12;
+                  active = 1245;
+            }
+            
+            if(button6State == HIGH)
+            {
+                  n1 = 8;
+                  n2 = 9;
+                  n3 = 11;
+                  n4 = 13;
+                  active = 1246;
+            }
+        }
+        
+        if(button5State == HIGH)
+        {
+            if(button6State == HIGH)
+            {
+                  n1 = 8;
+                  n2 = 9;
+                  n3 = 12;
+                  n4 = 13;
+                  active = 1256;
+            }
+        }
+      }
+      
+      if(button3State == HIGH)
+      {
+          if(button4State == HIGH)
+          {
+              if(button5State == HIGH)
+              {
+                  n1 = 8;
+                  n2 = 10;
+                  n3 = 11;
+                  n4 = 12;
+                  active = 1345;
+              }
+              
+              if(button6State == HIGH)
+              {
+                  n1 = 8;
+                  n2 = 10;
+                  n3 = 11;
+                  n4 = 13;
+                  active = 1346;
+              }
+          }
+
+        if(button5State == HIGH)
+        {
+            if(button6State == HIGH)
+            {
+                  n1 = 8;
+                  n2 = 10;
+                  n3 = 12;
+                  n4 = 13;
+                  active = 1356;
+            }
+        }
+      }
+    }
+    
+    if(button2State == HIGH)
+    {
+        if(button3State == HIGH)
+        {
+            if(button4State == HIGH)
+            {
+                if(button5State == HIGH)
+                {
+                  n1 = 8;
+                  n2 = 11;
+                  n3 = 12;
+                  n4 = 13;
+                  active = 1456;
+                }
+                
+                if(button6State == HIGH)
+                {
+                  n1 = 9;
+                  n2 = 10;
+                  n3 = 11;
+                  n4 = 12;
+                  active = 2345;
+                }
+            }
+            
+            if(button5State == HIGH)
+            {
+                if(button6State == HIGH)
+                {
+                  n1 = 9;
+                  n2 = 10;
+                  n3 = 11;
+                  n4 = 13;
+                  active = 2346;
+                }
+            }
+        }
+    }
+    
+    if(button3State == HIGH)
+    {
+        if(button4State == HIGH)
+        {
+            if(button5State == HIGH)
+            {
+                if(button6State == HIGH)
+                {
+                  n1 = 10;
+                  n2 = 11;
+                  n3 = 12;
+                  n4 = 13;
+                  active = 3456;
+                }
+            }
+        }
+    }
+    
+    
   
+    // FIVE BUTTON SCENARIOS
+    
+    if(button2State == HIGH && button3State == HIGH && button4State == HIGH && button5State == HIGH && button6State == HIGH)
+    {
+        n1 = 9;
+        n2 = 10;
+        n3 = 11;
+        n4 = 12;
+        n5 = 13;
+        active = 23456;
+    }
+    
+    if(button1State == HIGH && button3State == HIGH && button4State == HIGH && button5State == HIGH && button6State == HIGH)
+    {
+        n1 = 8;
+        n2 = 10;
+        n3 = 11;
+        n4 = 12;
+        n5 = 13;
+        active = 13456;
+    }
+    
+    if(button1State == HIGH && button2State == HIGH && button4State == HIGH && button5State == HIGH && button6State == HIGH)
+    {
+        n1 = 8;
+        n2 = 9;
+        n3 = 11;
+        n4 = 12;
+        n5 = 13;
+        active = 12456;
+    }
+    
+    if(button1State == HIGH && button2State == HIGH && button3State == HIGH && button5State == HIGH && button6State == HIGH)
+    {
+        n1 = 8;
+        n2 = 9;
+        n3 = 10;
+        n4 = 12;
+        n5 = 13;
+        active = 12356;
+    }
+    
+    if(button1State == HIGH && button2State == HIGH && button3State == HIGH && button4State == HIGH && button6State == HIGH)
+    {
+        n1 = 8;
+        n2 = 9;
+        n3 = 10;
+        n4 = 11;
+        n5 = 13;
+        active = 12346;
+    }
+    
+    if(button1State == HIGH && button2State == HIGH && button3State == HIGH && button4State == HIGH && button5State == HIGH)
+    {
+        n1 = 8;
+        n2 = 9;
+        n3 = 10;
+        n4 = 11;
+        n5 = 12;
+        active = 12345;
+    }
+    
   
     // SCENARIO ACTIONS
     
@@ -515,7 +748,7 @@ void loop()
         active = 0;
     }
     
-    if(active > 10)
+    if(active > 10 && active < 100)
     {
         for(int pinNumber = start; pinNumber < end; pinNumber++)
         {
@@ -525,20 +758,64 @@ void loop()
         }
     }
     
-    if(active > 100)
+    if(active > 100 && active < 1000)
     {
         delay(250);
         digitalWrite(n1, HIGH);
         delay(500);
         digitalWrite(n1, LOW);
         delay(500);
-        digitalWrite(n2, HIGH);
+        digitalWrite(n3, HIGH);
         delay(500);
+        digitalWrite(n3, LOW);
+        delay(250);
+        digitalWrite(n2, HIGH);
+        delay(250);
+        digitalWrite(n2, LOW);
+    }
+    
+    if(active > 1000 && active < 10000)
+    {
+        delay(250);
+        digitalWrite(n1, HIGH);
+        delay(250);
+        digitalWrite(n1, LOW);
+        delay(250);
+        digitalWrite(n2, HIGH);
+        delay(250);
         digitalWrite(n2, LOW);
         delay(250);
         digitalWrite(n3, HIGH);
         delay(250);
         digitalWrite(n3, LOW);
+        delay(250);
+        digitalWrite(n4, HIGH);
+        delay(250);
+        digitalWrite(n4, LOW);
+    }
+    
+    if(active > 10000)
+    {
+        delay(250);
+        digitalWrite(n3, HIGH);
+        delay(250);
+        digitalWrite(n3, LOW);
+        delay(250);
+        digitalWrite(n5, HIGH);
+        delay(250);
+        digitalWrite(n5, LOW);
+        delay(250);
+        digitalWrite(n2, HIGH);
+        delay(250);
+        digitalWrite(n2, LOW);
+        delay(250);
+        digitalWrite(n4, HIGH);
+        delay(250);
+        digitalWrite(n4, LOW);
+        delay(250);
+        digitalWrite(n1, HIGH);
+        delay(250);
+        digitalWrite(n1, LOW);
     }
     
 }
