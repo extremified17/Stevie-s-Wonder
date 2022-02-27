@@ -1,0 +1,88 @@
+int active = 0;
+int button1State = 0;
+int button2State = 0;
+int button3State = 0;
+int button4State = 0;
+int button5State = 0;
+int button6State = 0;
+
+void setup()
+{
+    for(int pinNumber = 1; pinNumber < 7; pinNumber++)
+    {
+      pinMode(pinNumber, INPUT);
+    }
+  
+      for(int pinNumber = 8; pinNumber < 14; pinNumber++)
+    {
+      pinMode(pinNumber, OUTPUT);
+    }
+}
+
+void loop()
+{
+    button1State = digitalRead(1);
+    button2State = digitalRead(2);
+    button3State = digitalRead(3);
+    button4State = digitalRead(4);
+    button5State = digitalRead(5);
+    button6State = digitalRead(6);
+    
+    if(button1State == HIGH)
+    {
+      active = 1;
+    }
+  
+  	if(button2State == HIGH)
+    {
+      active = 2;
+    }
+  
+  	if(button3State == HIGH)
+    {
+      active = 4;
+    }
+  
+  	if(button1State == HIGH)
+    {
+      active = 5;
+    }
+  
+  	if(button1State == HIGH)
+    {
+      active = 6;
+    }
+  
+  
+  
+  	if(active == 1)
+    {
+      digitalWrite(8, HIGH);
+    }
+  
+  	if(active == 2)
+    {
+      digitalWrite(9, HIGH);
+    }
+  
+  	if(active == 3)
+    {
+      digitalWrite(10, HIGH);
+    }
+  
+  	if(active == 4)
+    {
+      digitalWrite(11, HIGH);
+    }
+  
+  	if(active == 5)
+    {
+      digitalWrite(12, HIGH);
+    }
+  	
+  	if(active == 6)
+    {
+      digitalWrite(13, HIGH);
+    }
+  
+}
