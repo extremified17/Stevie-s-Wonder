@@ -1,6 +1,22 @@
 int button1State = 0;
+int active = 0;
 
 void setup()
 {
-    digitalRead
+    pinMode(1, INPUT);
+    pinMode(8, OUTPUT);
+}
+
+void loop()
+{
+    button1State = digitalRead(1);
+    
+    if(button1State == LOW)
+    {
+        digitalWrite(8, LOW);
+    }
+    else
+    {
+        digitalWrite(8, HIGH);
+    }
 }
